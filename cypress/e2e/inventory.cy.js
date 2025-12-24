@@ -26,20 +26,56 @@ describe('Invertory Page Tests', () => {
 
     it('Verify First Item Name on Inventory Page', () => {
 
-        cy.getByTest('inventory-item-name').first().should('have.text','Sauce Labs Backpack');
+        inventoryP.getItemNames().first().should('have.text','Sauce Labs Backpack');
 
     });
 
     it('Verify Last Item Name on Inventory Page', () => {
 
-        cy.getByTest('inventory-item-name').last().should('have.text','Test.allTheThings() T-Shirt (Red)'); 
+        inventoryP.getItemNames().last().should('have.text','Test.allTheThings() T-Shirt (Red)'); 
 
     });
+
+    it('Verify Inventory Items have Add to Cart Button', () => {
+
+        cy.getByTest('inventory-item').each(($el) =>{
+            cy.wrap($el).find('button.btn_inventory').should('have.text','Add to cart'); 
+        })
+    });
+
+    it('Verify Inventory Items have Price', () => {
+
+        cy.getByTest('inventory-item').each(($el) =>{
+            cy.wrap($el).find('div.inventory_item_price').should('exist'); 
+        })  
+    });
+
+    it('Verify Inventory Items have Image', () => {
+
+        cy.getByTest('inventory-item').each(($el) =>{
+            cy.wrap($el).find('img.inventory_item_img').should('exist'); 
+        })  
+    });
+
+    it('Verify Inventory Items have Description', () => {
+
+        cy.getByTest('inventory-item').each(($el) =>{
+            cy.wrap($el).find('div.inventory_item_desc').should('exist'); 
+        })
+    });
+
+    it('Verify Inventory Items have Remove Button after Adding to Cart', () => {
+
+        inventoryP.getFirstItemBtn().click();
+        inventoryP.getFirstItemBtn().should('have.text','Remove'); 
+    });
+
+    
 
 
     it('Add First Item to Cart', () => {
 
-        cy.getByTest('add-to-cart-sauce-labs-backpack').click();
+        inventoryP.getFirstItemBtn().click();
         cy.get('.shopping_cart_badge').should('have.text','1'); 
     });
 
@@ -53,11 +89,13 @@ describe('Invertory Page Tests', () => {
 
     it('Remove First Item from Cart', () => {
 
-        cy.getByTest('add-to-cart-sauce-labs-backpack').click();
+        inventoryP.getFirstItemBtn().click();
         cy.get('.shopping_cart_badge').should('have.text','1'); 
-        cy.getByTest('remove-sauce-labs-backpack').click();
+        inventoryP.getFirstItemBtn().click();
         cy.get('.shopping_cart_badge').should('not.exist'); 
     });
+
+    
 
     it('Remove All Items from Cart', () => {
 
@@ -72,5 +110,42 @@ describe('Invertory Page Tests', () => {
 
         cy.get('.shopping_cart_badge').should('not.exist');
     });
+
+    it('Navigate to Cart Page', () => {
+
+        inventoryP.getFirstItemBtn().click();
+        inventoryP.cartLink().click();
+        cy.url().should('include','cart.html');
+        inventoryP.cartBadge().should('have.text','1');
+
+    });
+
+    it('Verify Sorting Items by Name A to Z', () => {
+
+        cy.getByTest('product-sort-container').select('Name (A to Z)');
+        inventoryP.getItemNames().first().should('have.text','Sauce Labs Backpack');
+        inventoryP.getItemNames().last().should('have.text','Test.allTheThings() T-Shirt (Red)');
+    });
+
+    it('Verify Sorting Items by Name Z to A', () => {   
+        cy.getByTest('product-sort-container').select('Name (Z to A)');
+        inventoryP.getItemNames().first().should('have.text','Test.allTheThings() T-Shirt (Red)');
+        inventoryP.getItemNames().last().should('have.text','Sauce Labs Backpack');
+    });
+
+    it('Verify Sorting Items by Price Low to High', () => {   
+        cy.getByTest('product-sort-container').select('Price (low to high)');
+        cy.getByTest('inventory-item-price').first().should('have.text','$7.99');
+        cy.getByTest('inventory-item-price').last().should('have.text','$49.99');
+    });
+
+    it('Verify Sorting Items by Price High to Low', () => {
+        cy.getByTest('product-sort-container').select('Price (high to low)');
+        cy.getByTest('inventory-item-price').first().should('have.text','$49.99');
+        cy.getByTest('inventory-item-price').last().should('have.text','$7.99');    
+    });
+
+    
+
 
 });
