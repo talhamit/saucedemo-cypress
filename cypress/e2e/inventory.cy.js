@@ -183,7 +183,7 @@ describe('Invertory Page Tests', () => {
 })
 
             // alias .as uses
-     it.only('Verify click on a product name navigate to the product detail page and back to inventory page', () => {
+     it('Verify click on a product name navigate to the product detail page and back to inventory page', () => {
         inventoryP.getFirstItemName().invoke('text').as('firstItemName');
 
             cy.getByTest('inventory-item-desc').first().invoke('text').as('firstItemDesc');
