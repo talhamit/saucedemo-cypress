@@ -145,7 +145,73 @@ describe('Invertory Page Tests', () => {
         cy.getByTest('inventory-item-price').last().should('have.text','$7.99');    
     });
 
-    
+   
+    it('Verify click on a product name navigates to the product detail page', () => {
+
+        inventoryP.getFirstItemName().invoke('text').then((name) => {
+           // cy.log(name);
+            
+            inventoryP.getFirstItemName().click();
+                    cy.url().should('include','inventory-item.html?id=');
+                   cy.getByTest('inventory-item-name').should('have.text', name.trim());
+
+        })
+
+        
+    });
+
+        /* Then Uses*/
+    /*Comparison inventory product name and description to detail page name and description*/
+    it.skip('Verify click on a product name navigate to the product detail page and back to inventory page', () => {
+        inventoryP.getFirstItemName().invoke('text').then((name) =>{
+
+            cy.getByTest('inventory-item-desc').first().invoke('text').then((itemDesc) => {
+
+            inventoryP.getFirstItemName().click();
+
+            cy.url().should('include','inventory-item.html?id=');
+            
+            cy.getByTest('inventory-item-name').should('have.text', name.trim());
+
+            cy.getByTest('inventory-item-desc').should('have.text', itemDesc.trim());
+            
+            cy.go('back');
+
+        
+            })
+    })
+})
+
+            // alias .as uses
+     it.only('Verify click on a product name navigate to the product detail page and back to inventory page', () => {
+        inventoryP.getFirstItemName().invoke('text').as('firstItemName');
+
+            cy.getByTest('inventory-item-desc').first().invoke('text').as('firstItemDesc');
+
+            inventoryP.getFirstItemName().click();
+
+            cy.url().should('include','inventory-item.html?id=');
+
+            cy.get('@firstItemName').then((name) => {
+                cy.getByTest('inventory-item-name').should('have.text', name.trim());
+            });
+
+            cy.get('@firstItemDesc').then((itemDesc) => {          
+            cy.getByTest('inventory-item-desc').should('have.text', itemDesc.trim());
+            });
+
+            /*
+            this .go function to go back to previous page of browser history
+             this function use 
+              going back ('back') or (-1)
+                going forward ('forward') or (1)
+            */
+            cy.go('back');
+
+        
+            
+    })
+})
 
 
-});
+

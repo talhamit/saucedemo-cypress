@@ -4,9 +4,12 @@ class inventory {
        return cy.get('[data-test="title"]');
     }
 
-
     getItemNames(){
         return cy.getByTest('inventory-item-name');
+    }
+    
+    getFirstItemName(){
+        return cy.getByTest('inventory-item-name').first();
     }
 
     getFirstItemBtn(){
