@@ -1,27 +1,11 @@
-# GitLab CI/CD for Cypress
 stages:
   - test
 
-variables:
-  # Skip GitLab's default cache
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
-
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - node_modules/
-    - cache/Cypress/
-
 cypress_tests:
-  image: cypress/base:14  # Node + Cypress base image
+  image: cypress/browsers:node14.17.0-chrome91-ff89
   stage: test
   before_script:
-    - npm ci                 # Install dependencies
+    - npm ci
+    - npx cypress verify      # Verify Cypress installation
   script:
-    - npx cypress run         # Run all Cypress tests
-  artifacts:
-    when: always
-    paths:
-      - cypress/screenshots/  # Save screenshots
-      - cypress/videos/       # Save videos
-    expire_in: 1 week
+    - npx cypress run --browser chrome --headless
