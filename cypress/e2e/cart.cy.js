@@ -101,6 +101,88 @@ it('Verify Cart Page after Logout and Login again', () => {
 
 });
 
-    
+it('Verify Cart Page UI Elements', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartLink().click();
+    cy.get('.cart_item').should('exist');
+    cartP.getCartPageTitle().should('exist');
+    cy.getByTest('continue-shopping').should('exist');
+    cy.getByTest('checkout').should('exist');
+});
+
+it('Verify Adding and Removing Item updates Cart Badge correctly', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartBadge().should('have.text','1');
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartBadge().should('not.exist');
+});
+
+it('Verify Cart Page is Accessible from Inventory after Adding Item', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartLink().click();
+    cy.url().should('include','cart.html');
+    cartP.getCartPageTitle().should('have.text','Your Cart');
+
+});
+
+it('Verify Cart Page is Accessible from Inventory without Adding Item', () => {
+    inventoryP.cartLink().click();
+    cy.url().should('include','cart.html');
+    cartP.getCartPageTitle().should('have.text','Your Cart');
+
+});
+
+it('Verify Removing Item from Cart updates Inventory Button Text', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartLink().click();
+    cy.url().should('include','cart.html');
+
+    cartP.cartRemoveButton().click();
+    cy.go('back');
+    inventoryP.getFirstItemBtn().should('have.text','Add to cart');
+});
+
+it('Verify Cart Page Retains Items after Page Refresh', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartLink().click();
+    cy.url().should('include','cart.html');
+    cy.reload();
+    cy.get('.cart_item').should('have.length',1);
+});
+
+it('Verify Checkout Process Initiation from Cart Page', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartLink().click();
+    cy.url().should('include','cart.html');
+    cy.getByTest('checkout').click();
+    cy.url().should('include','checkout-step-one.html');
+
+});
+
+
+it('Verify Cart Page Responsiveness on Different Viewports', () => {
+    const viewports = ['iphone-6','ipad-2','macbook-15'];
+    viewports.forEach((viewport) => {
+        cy.viewport(viewport);
+        inventoryP.getFirstItemBtn().click();
+        inventoryP.cartLink().click();
+        cy.url().should('include','cart.html');
+        cartP.getCartPageTitle().should('have.text','Your Cart');
+        cy.go('back');
+        inventoryP.getFirstItemBtn().click(); // Remove item for next iteration
+    });
+});
+
+it('Verify Cart Page Does Not Allow Negative Item Count', () => {
+    inventoryP.getFirstItemBtn().click();
+    inventoryP.cartLink().click();
+    cy.url().should('include','cart.html');
+    cartP.cartRemoveButton().click();
+    inventoryP.cartBadge().should('not.exist');
+
+});
+
+
+
 
 });
