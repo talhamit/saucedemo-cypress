@@ -1,9 +1,17 @@
 stages:
   - test
 
-login-tests:
-  stage: test
+cypress_job_parallel:
   image: cypress/browsers:node18.12.0-chrome107
+  stage: test
+  parallel: 2
   script:
+    - node -v
+    - npm -v
     - npm ci
-    - npx cypress run --spec "cypress/e2e/login/**/*.cy.js"
+    - npx cypress run --browser chrome --headless
+  artifacts:
+    when: always
+    paths:
+      - cypress/screenshots/
+      - cypress/videos/
