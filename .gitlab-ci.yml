@@ -1,11 +1,18 @@
 stages:
   - test
 
-cypress_tests:
-  image: cypress/browsers:node14.17.0-chrome91-ff89
+
+browser-test-job:
+  image: cypress/browsers
   stage: test
-  before_script:
-    - npm ci
-    - npx cypress verify      # Verify Cypress installation
   script:
-    - npx cypress run --browser chrome --headless
+    - npx cypress run --browser chrome 
+
+cypress-include-job:
+  stage: test
+  image:
+    name: cypress/included
+    endpoint: [""]
+    
+  script:
+    - npx cypress run --browser chrome 
