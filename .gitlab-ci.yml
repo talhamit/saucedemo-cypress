@@ -4,11 +4,7 @@ stages:
 cypress_job_parallel:
   image: cypress/browsers:node18.12.0-chrome107
   stage: test
-<<<<<<< HEAD
   parallel: 2
-=======
-
->>>>>>> b4f4b26 (Parallel Test Run Update)
   script:
     - node -v
     - npm -v
