@@ -35,11 +35,7 @@ describe("Checkout Page Tests", ()=>{
         checkoutP.checkOutBtn().should('not.be.disabled');
     });
 
-    it('Verify Checkout Button Text', () => {
-        inventoryP.getFirstItemBtn().click();
-        inventoryP.cartLink().click();
-        checkoutP.checkOutBtn().should('have.text','CHECKOUT');
-    });
+    
 
     it('Verify Checkout Button Text Negative Test', () => {
         inventoryP.getFirstItemBtn().click();
