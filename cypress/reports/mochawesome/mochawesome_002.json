@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-28T13:33:30.480Z",
+    "end": "2025-12-28T13:33:37.288Z",
+    "duration": 6808,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7bec04eb-12e4-4bb4-8730-164852b5928d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\footer.cy.js",
+      "file": "cypress\\e2e\\footer.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4d44694d-6fc7-4e02-ba36-9133f7d3431e",
+          "title": "Footer Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Footer Container is Visible",
+              "fullTitle": "Footer Tests Verify Footer Container is Visible",
+              "timedOut": null,
+              "duration": 2680,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "footerP.footerContainer().should('be.visible');",
+              "err": {},
+              "uuid": "ee3a7166-2d17-409a-8136-dba989391484",
+              "parentUUID": "4d44694d-6fc7-4e02-ba36-9133f7d3431e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Footer Link",
+              "fullTitle": "Footer Tests Verify Footer Link",
+              "timedOut": null,
+              "duration": 1762,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const footerLink = ['https://twitter.com/saucelabs', 'https://www.facebook.com/saucelabs', 'https://www.linkedin.com/company/sauce-labs/'];\ncy.get('.social li').each(($el, index) => {\n  cy.wrap($el).find('a').should('have.attr', 'href').and('contains', footerLink[index]);\n});",
+              "err": {},
+              "uuid": "9edb8e54-045e-473f-b077-3d736c3ca8cb",
+              "parentUUID": "4d44694d-6fc7-4e02-ba36-9133f7d3431e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Footer Text",
+              "fullTitle": "Footer Tests Verify Footer Text",
+              "timedOut": null,
+              "duration": 2130,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "footerP.footerText().should('have.text', '© 2025 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');",
+              "err": {},
+              "uuid": "2aa635ec-c43d-4ef9-be46-f82cccaf0a61",
+              "parentUUID": "4d44694d-6fc7-4e02-ba36-9133f7d3431e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ee3a7166-2d17-409a-8136-dba989391484",
+            "9edb8e54-045e-473f-b077-3d736c3ca8cb",
+            "2aa635ec-c43d-4ef9-be46-f82cccaf0a61"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6572,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
