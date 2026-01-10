@@ -1,0 +1,243 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-12-28T15:33:27.509Z",
+    "end": "2025-12-28T15:33:45.369Z",
+    "duration": 17860,
+    "testsRegistered": 8,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 7,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "f8740982-7d7f-4762-8254-00b37a12f67d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\checkout.cy.js",
+      "file": "cypress\\e2e\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+          "title": "Checkout Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Checkout Button Visibility",
+              "fullTitle": "Checkout Page Tests Verify Checkout Button Visibility",
+              "timedOut": null,
+              "duration": 17700,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"username\"]`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Checkout Page Tests`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-test=\"username\"]`, but never found it.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Checkout Page Tests`\n    at loginPage.SouceLogin (webpack://cypress-saucedemo/./cypress/pages/loginPage.js:37:5)\n    at Context.eval (webpack://cypress-saucedemo/./cypress/e2e/checkout.cy.js:15:15)",
+                "diff": null
+              },
+              "uuid": "cb578bc4-db76-4e41-869a-3abe2d5ba9db",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Checkout Button Enabled",
+              "fullTitle": "Checkout Page Tests Verify Checkout Button Enabled",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().should('be.enabled');",
+              "err": {},
+              "uuid": "fe7471ee-9179-4fad-995b-fda59c31cf92",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify Checkout Button Disabled Negative Test",
+              "fullTitle": "Checkout Page Tests Verify Checkout Button Disabled Negative Test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().should('not.be.disabled');",
+              "err": {},
+              "uuid": "342deb77-760c-4c3f-9aaf-04b9cebf54c5",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify Checkout Button Text Negative Test",
+              "fullTitle": "Checkout Page Tests Verify Checkout Button Text Negative Test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().should('not.have.text', 'CHECKOUT123');",
+              "err": {},
+              "uuid": "6b829a56-0c5d-4c2c-89a0-0ea2813d005c",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify Checkout Button Count",
+              "fullTitle": "Checkout Page Tests Verify Checkout Button Count",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().its('length').should('eq', 1);",
+              "err": {},
+              "uuid": "33d2ecbd-815d-4e23-a0c1-365916bed524",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify Checkout Button Functionality",
+              "fullTitle": "Checkout Page Tests Verify Checkout Button Functionality",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().click();\ncy.url().should('include', 'checkout-step-one.html');",
+              "err": {},
+              "uuid": "a17f7435-ddf3-467d-97aa-8b41a0d8c7ad",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify Checkout Page Title",
+              "fullTitle": "Checkout Page Tests Verify Checkout Page Title",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().click();\ncy.url().should('include', 'checkout-step-one.html');\ncheckoutP.checkOutTitle().should('have.text', 'Checkout: Your Information');",
+              "err": {},
+              "uuid": "d3bf7da1-969d-4719-9072-032047bec259",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Verify Checkout Page Title Negative Test",
+              "fullTitle": "Checkout Page Tests Verify Checkout Page Title Negative Test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "inventoryP.getFirstItemBtn().click();\ninventoryP.cartLink().click();\ncheckoutP.checkOutBtn().click();\ncy.url().should('include', 'checkout-step-one.html');\ncheckoutP.checkOutTitle().should('not.have.text', 'Checkout: Your Information123');",
+              "err": {},
+              "uuid": "df14e578-73f2-4b11-894a-0d14aa85e400",
+              "parentUUID": "0941116d-2d6a-4fc1-95a2-0857b82ce900",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "cb578bc4-db76-4e41-869a-3abe2d5ba9db"
+          ],
+          "pending": [],
+          "skipped": [
+            "fe7471ee-9179-4fad-995b-fda59c31cf92",
+            "342deb77-760c-4c3f-9aaf-04b9cebf54c5",
+            "6b829a56-0c5d-4c2c-89a0-0ea2813d005c",
+            "33d2ecbd-815d-4e23-a0c1-365916bed524",
+            "a17f7435-ddf3-467d-97aa-8b41a0d8c7ad",
+            "d3bf7da1-969d-4719-9072-032047bec259",
+            "df14e578-73f2-4b11-894a-0d14aa85e400"
+          ],
+          "duration": 17700,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 1,
+    "failures": 0,
+    "start": "2025-12-28T14:44:25.437Z",
+    "end": "2025-12-28T14:44:49.002Z",
+    "duration": 23565,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 14.285714285714285,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b73055b7-7b60-48e2-b914-57686ded4edb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\navMenu.cy.js",
+      "file": "cypress\\e2e\\navMenu.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "59f8f320-6400-4912-b564-c07702952a21",
+          "title": "Invertory Page Menu",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Menu button Click",
+              "fullTitle": "Invertory Page Menu Verify Menu button Click",
+              "timedOut": null,
+              "duration": 13133,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\nnavMenuP.menuContainer().should('be.visible');",
+              "err": {},
+              "uuid": "2aa89643-2018-4377-8a29-703c5afb14e1",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify All Items Link",
+              "fullTitle": "Invertory Page Menu Verify All Items Link",
+              "timedOut": null,
+              "duration": 2359,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\nnavMenuP.getAllItemsLink().should('have.attr', 'href').and('contains', '#');\nnavMenuP.getAllItemsLink().should('have.text', 'All Items');",
+              "err": {},
+              "uuid": "0eaba6c7-2326-4992-8a60-e4200776e8ab",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify About Link",
+              "fullTitle": "Invertory Page Menu Verify About Link",
+              "timedOut": null,
+              "duration": 1439,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\nnavMenuP.aboutLink().should('have.attr', 'href').and('contains', 'saucelabs.com');",
+              "err": {},
+              "uuid": "b2f8a53d-72aa-439f-981a-a7207430b0a3",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Logout Link",
+              "fullTitle": "Invertory Page Menu Verify Logout Link",
+              "timedOut": null,
+              "duration": 2799,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\nnavMenuP.logoutLink().click();\ncy.url().should('include', 'saucedemo.com');",
+              "err": {},
+              "uuid": "a82730d3-8c8c-408f-9078-cf061b58ec91",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Reset App State Link",
+              "fullTitle": "Invertory Page Menu Verify Reset App State Link",
+              "timedOut": null,
+              "duration": 1722,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\nnavMenuP.resetAppStateLink().click();\n// No direct validation available for reset app state\n// You can add validation based on your app's behavior after reset",
+              "err": {},
+              "uuid": "c958ab1a-afa1-4570-8c4d-44f8c8c31cc2",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Close Menu Button",
+              "fullTitle": "Invertory Page Menu Verify Close Menu Button",
+              "timedOut": null,
+              "duration": 1759,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\nnavMenuP.closeMenuButton().click();\nnavMenuP.menuContainer().should('not.be.visible');",
+              "err": {},
+              "uuid": "c3d9fb98-2b79-4aa3-afb5-7fc55a3d4ff4",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Close Menu by clicking outside",
+              "fullTitle": "Invertory Page Menu Verify Close Menu by clicking outside",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "navMenuP.menuButton().click();\ncy.get('div.inventory_container').click({\n  force: true\n});\nnavMenuP.menuContainer().should('not.be.visible');",
+              "err": {},
+              "uuid": "a94d61f8-12f3-4c92-a4bc-09ac71b56e70",
+              "parentUUID": "59f8f320-6400-4912-b564-c07702952a21",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2aa89643-2018-4377-8a29-703c5afb14e1",
+            "0eaba6c7-2326-4992-8a60-e4200776e8ab",
+            "b2f8a53d-72aa-439f-981a-a7207430b0a3",
+            "a82730d3-8c8c-408f-9078-cf061b58ec91",
+            "c958ab1a-afa1-4570-8c4d-44f8c8c31cc2",
+            "c3d9fb98-2b79-4aa3-afb5-7fc55a3d4ff4"
+          ],
+          "failures": [],
+          "pending": [
+            "a94d61f8-12f3-4c92-a4bc-09ac71b56e70"
+          ],
+          "skipped": [],
+          "duration": 23211,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

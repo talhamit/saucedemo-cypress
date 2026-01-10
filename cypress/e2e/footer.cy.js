@@ -32,7 +32,7 @@ describe('Footer Tests', () => {
 });
 
 it('Verify Footer Text', () => {
-    footerP.footerText().should('have.text','© 2025 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');   
+    footerP.footerText().should('have.text','© 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');   
 
 });
 
