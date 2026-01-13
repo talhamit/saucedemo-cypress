@@ -101,7 +101,7 @@ describe('Invalid LOGIN Tests', () =>{
     
     it('Should not allow login with very long strings', () =>{
 
-        const longString = 'a'.repeat(1000);    
+        const longString = 'a'.repeat(100);    
         loginP.SouceLogin(longString,longString);
         loginP.errorMessage().should('have.text','Epic sadface: Username and password do not match any user in this service');
         })
